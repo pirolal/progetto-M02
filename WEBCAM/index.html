@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>SISTEMA MONITORAGGIO LIVE - PRO</title>
+    <style>
+        body { background: #0a0a0a; color: white; font-family: 'Segoe UI', Tahoma, sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; max-width: 1200px; margin: auto; }
+        .cam-container { position: relative; border: 2px solid #333; border-radius: 10px; overflow: hidden; box-shadow: 0 0 15px rgba(0,255,0,0.1); }
+        video { width: 100%; display: block; filter: grayscale(20%); }
+        .label { position: absolute; top: 10px; left: 10px; background: rgba(255, 0, 0, 0.7); padding: 4px 10px; font-size: 12px; font-weight: bold; border-radius: 3px; animation: blink 2s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+        
+        .log-box { 
+            margin: 30px auto; max-width: 1200px; background: #000; border: 1px solid #00ff00; 
+            padding: 15px; text-align: left; max-height: 250px; overflow-y: auto; 
+            color: #00ff00; font-family: 'Courier New', monospace; font-size: 14px;
+        }
+        .log-entry { padding: 5px; cursor: pointer; border-bottom: 1px solid #111; }
+        .log-entry:hover { background: #003300; }
+        h1 { color: #00ff00; letter-spacing: 2px; }
+    </style>
+</head>
+<body>
+
+    <h1>CENTRO CONTROLLO AUTOSTRADALE</h1>
+    <p style="color: #888;">Archiviazione automatica attiva: Anno/Data/Log</p>
+
+    <div class="grid">
+        <div class="cam-container">
+            <div class="label">CAM 01 - LIVE</div>
+            <video src="video/cam1.mp4" autoplay loop muted></video>
+        </div>
+        <div class="cam-container">
+            <div class="label">CAM 02 - LIVE</div>
+            <video src="video/cam2.mp4" autoplay loop muted></video>
+        </div>
+        <div class="cam-container">
+            <div class="label">CAM 03 - LIVE</div>
+            <video src="video/cam3.mp4" autoplay loop muted></video>
+        </div>
+        <div class="cam-container">
+            <div class="label">CAM 04 - LIVE</div>
+            <video src="video/cam4.mp4" autoplay loop muted></video>
+        </div>
+    </div>
+
+    <div class="log-box" id="log-list">Inizializzazione archivio...</div>
+
+    <script>
+        function openScreenshot(line) {
+            const match = line.match(/Telecamera (\d+)/);
+            if (match) window.location.href = `screenshot.html?cam=${match[1]}`;
+        }
+
+        async function autoSave() {
+            const now = new Date().toLocaleString('it-IT');
+            try {
+                await fetch('/auto-save', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ cameras: [1,2,3,4], timestamp: now })
+                });
+                loadLogs();
+            } catch (e) { console.error("Errore salvataggio iniziale"); }
+        }
+
+        async function loadLogs() {
+            const res = await fetch('/get-logs');
+            const data = await res.text();
+            const logList = document.getElementById('log-list');
+            logList.innerHTML = '';
+            
+            data.trim().split('\n').forEach(line => {
+                if (line) {
+                    const div = document.createElement('div');
+                    div.className = 'log-entry';
+                    div.innerText = `> ${line}`;
+                    div.onclick = () => openScreenshot(line);
+                    logList.appendChild(div);
+                }
+            });
+            logList.scrollTop = logList.scrollHeight;
+        }
+
+        window.onload = () => {
+            autoSave(); 
+            setInterval(loadLogs, 5000); 
+        };
+    </script>
+</body>
+</html>
