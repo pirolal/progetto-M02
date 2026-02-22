@@ -192,8 +192,37 @@ Il sistema automatizza il protocollo di emergenza. Esegue un appello digitale is
 File principale: contatta_corrieri.sh
 
 - Comando: ./contatta_corrieri.sh
+  ```
+  STAZIONE: Marco Rossi    STATUS: [PRESENTE]
+  STAZIONE: Luca Bianchi   STATUS: [ASSENTE]
+  STAZIONE: Sara Verdi     STATUS: [PRESENTE]
+  STAZIONE: Elena Viola    STATUS: [ASSENTE]
+  STAZIONE: Mario Rossi    STATUS: [PRESENTE]
+  STAZIONE: Giulia Esposito        STATUS: [PRESENTE]
+  STAZIONE: Matteo Ricci   STATUS: [PRESENTE]
+  STAZIONE: Chiara Marino          STATUS: [PRESENTE]
+  STAZIONE: Davide Greco   STATUS: [PRESENTE]
+  ...
+  STAZIONE: Valentina Bruno        STATUS: [ASSENTE]
+  STAZIONE: Simone Gallo   STATUS: [PRESENTE]
+
+  ------------------------------------------------
+  >>> RILEVATE ASSENZE NEI 20 SLOT. AVVIO RICERCA...
+  
+  SOSTITUZIONE PER: Valentina Bruno
+  Chiamata a Rossella Ferraro (3339900778)... ACCETTATO
+  
+  SOSTITUZIONE PER: Luca Bianchi
+  Chiamata a Nicole Piras (3472233444)... ACCETTATO
+  
+  SOSTITUZIONE PER: Elena Viola
+  Chiamata a Daniele Pellegrini (3495566227)... RIFIUTATO
+  Chiamata a Aurora Rinaldi (3201122117)... ACCETTATO
+
+  ```
 - Logica: Lo script avvia il modulo Python generatore_assenti.py per l'appello. Se vengono rilevati assenti, lo script Bash avvia una scansione ricorsiva sul database corrieri.csv finché non trova e conferma i sostituti necessari.
-- Output: Genera un report ufficiale denominato registro_assenti.txt per le finalitàamministrative.
+- Output: Genera un report ufficiale denominato registro_assenti.txt per le finalità amministrative.
+
 
 
 
@@ -209,8 +238,41 @@ In ogni istante, l'operatore può interrogare il sistema per sapere esattamente 
 File principali: Simulatore.sh (interfaccia CLI) e gestione_spedizioni.db (database).
 
 - Inizializzazione: ./Simulatore.sh -i (Popola il database e avvia il flusso di smistamento automatico).
+  ```
+  --- Avvio Sequenza Smistamento ---
+  Il pacco con ID 1 (Cliente: Luca) deve andare tramite il sensore 1
+  Sensore 1 in movimento...
+  Pacco arrivato nella tela 1
+ 
+  Il pacco con ID 4 (Cliente: Luca) deve andare tramite il sensore 2
+  Sensore 2 in movimento...
+  Pacco arrivato nella tela 2
+  -----------------------------------
+  Il pacco con ID 5 (Cliente: Luca) deve andare tramite il sensore 3
+  Sensore 3 in movimento...
+  Pacco arrivato nella tela 3
+
+  ```
 - Filtro per Area: ./Simulatore.sh -s1 (oppure -s2, -s3) per visualizzare l'elenco dei pacchi presenti in una specifica zona di carico.
-- Ricerca Puntuale: ./Simulatore.sh -p [ID] per ottenere il percorso esatto e il sensore di passaggio di un determinato pacco.
+  ```
+  Pacchi passati per il sensore 1:
+  Pacco ID 1
+  Pacco ID 3
+  Pacco ID 6
+  Pacco ID 13
+  Pacco ID 16
+  Pacco ID 20
+  Pacco ID 21
+  Pacco ID 22
+  Pacco ID 23
+  Pacco ID 24
+
+  ```
+- Ricerca Puntuale: ./Simulatore.sh -p [ID] per ottenere il percorso esatto e il sensore di passaggio di un determinato pacco (es. ID=12).
+  ```
+  Il pacco 12 è passato dal sensore 3
+
+  ```
 
 
 
@@ -224,6 +286,14 @@ Il monitoraggio è stato trasformato in un sistema di auditing automatico. Grazi
 File principali: Accensione_Server.sh e server.js.
 
 - Avvio: Eseguire ./Accensione_Server.sh per attivare il server sulla porta 9000.
+  ```
+  Server in avvio su porta 9000
+  Per chiudere il server, premi CTRL+C nel terminale.
+  ------------------------------------------------
+  SERVER ATTIVO: http://localhost:9000
+  In attesa di connessione sulla pagina web...
+
+  ```
 - Utilizzo: Accedere tramite browser all'indirizzo http://localhost:9000.
 - Automazione: All'apertura della pagina index.html, il sistema invia i segnali al server che provvede a creare la struttura delle cartelle, salvare i file JPG e aggiornare il registro cronologico report_accesso.csv.
 
