@@ -438,7 +438,7 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
 1.	Abilitazione: Rendere eseguibile lo script tramite chmod u+x problema2.sh.
 2.	Sintassi e Parametri: L'analisi si adatta dinamicamente agli argomenti inseriti:
      - ./problema2.sh → Analisi rapida dei blocchi avvenuti nella data odierna.
-           ```
+       ```
           Le tele sono state ferme per 12 volte il 2026-02-09 tra 00:00 e 23:59
           Dettaglio fermate:
           10:33:36 - tela bloccata
@@ -454,9 +454,9 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
           10:33:54 - tela bloccata
           10:33:55 - tela bloccata
           
-            ```
+       ```
      - ./problema2.sh [RULLO]→ Focus specifico sulle performance di una singola linea di produzione.
-           ```
+       ```
           Il rullo 2 è stato fermo per 18 volte il 2026-02-22 tra 00:00 e 23:59
           Dettaglio fermate:
           10:32:47 - tela bloccata
@@ -478,9 +478,9 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
           10:33:45 - tela bloccata
                     
           
-            ```
+       ```
      - ./problema2.sh [YYYY-MM-DD]→ Report giornaliero con calcolo dei secondi totali di fermo e dettaglio orario.
-           ```
+        ```
           Le tele sono state ferme per 12 volte il 2026-02-09 tra 00:00 e 23:59
           Dettaglio fermate:
           15:08:43 - tela bloccata
@@ -496,9 +496,9 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
           15:09:06 - tela bloccata
           15:09:07 - tela bloccata
           
-            ```
+        ```
      - ./problema2.sh [DATA] [ORARIO] [RULLO] → Analisi granulare filtrata per data, fascia oraria e macchinario.
-           ```
+       ```
           Il rullo 3 è stato fermo per 6 volte il 2026-02-09 tra 15:08 e 15:09
           Dettaglio fermate:
           15:08:43 - tela bloccata
@@ -508,13 +508,12 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
           15:09:06 - tela bloccata
           15:09:07 - tela bloccata
           
-          
-            ```
+       ```
      - ./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due date e calcola la variazione percentuale di efficienza lavorativa.
-           ```
+       ```
          Il giorno 2026-02-03 l'azienda ha lavorato il 20% in meno rispetto al 2026-02-09 (Blocchi: 2026-02-03=15, 2026-02-09=12)
        
-            ```
+       ```
 4.	Output: I dati vengono processati e proiettati a terminale in formato testuale leggibile.
 
 
