@@ -76,10 +76,58 @@ Lo script monitora lo stoccaggio dei pacchi per ogni dipendente. Permette di ver
 
 #### Manuale Operativo:
 - Situazione Odierna: ./filtra.sh (mostra il totale pacchi e il dettaglio per matricola di oggi).
+  ```
+  TOTALE PACCHI OGGI: 562
+  -----------------------------------
+  Dettaglio per matricola:
+  - Matricola 01: 329 pacchi
+  - Matricola 02: 233 pacchi
+
+  ```
 - Carriera Dipendente: ./filtra.sh -m [matricola] (es: 02).
-- Report Data Specifica: ./filtra.sh -d [data].
+  ```
+  --- Carriera Matricola 02 ---
+  2026-02-13: 371 pacchi
+  2026-02-14: 213 pacchi
+  2026-02-15: 155 pacchi
+  2026-02-16: 160 pacchi
+  2026-02-17: 195 pacchi
+  2026-02-18: 317 pacchi
+  2026-02-19: 396 pacchi
+  2026-02-20: 351 pacchi
+  2026-02-21: 490 pacchi
+  2026-02-22: 233 pacchi
+  TOTALONE CARRIERA: 2881
+
+  ```
+- Report Data Specifica: ./filtra.sh -d [data] (es: 2026-02-22).
+  ```
+  --- Report del 2026-02-22 ---
+  Matricola 01: 329 pacchi
+  Matricola 02: 233 pacchi
+
+  ```
 - Report Periodo: ./filtra.sh -g [data1] [data2].
-- Ricerca Record: ./filtra.sh -M (può essere unito a -d o -g per trovare il recordman di quel periodo).
+  ```
+   --- Report Totale Periodo (2026-02-16 / 2026-02-20) ---
+  Totale pacchi nel periodo: 6521
+  -----------------------------------
+  Dettaglio per matricola:
+  - Matricola 01: 1530 pacchi
+  - Matricola 02: 1419 pacchi
+  - Matricola 03: 1054 pacchi
+  - Matricola 04: 1201 pacchi
+  - Matricola 05: 1317 pacchi
+
+  ```
+- Ricerca Record: ./filtra.sh -M (può essere unito a -d o -g per trovare il recordman di quel periodo)  (es: 2026-02-22).
+  ```
+  --- Record nel giorno: ---
+  Record di pacchi sparati: 2887 🏆
+  Raggiunto da:
+  - Matricola: 01
+
+  ```
 
 
 ## problema 3: Fondo rullo
