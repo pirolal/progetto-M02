@@ -1,1 +1,3 @@
-# progetto-M02
+# progetto magazzino di simistamento
+![mappa magazzino](immagine magazzino.jpeg)
+
