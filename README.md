@@ -4,28 +4,47 @@
 
 ## problema 1: Monitoraggio Baie di Scarico (Indact)
 ### Script: ./sensore_baita_multiplo.sh
-Gestisce la prima fase del processo logistico: l'arrivo dei TIR e lo scarico dei pacchi nelle 3 baie del magazzino. Lo script si interfaccia con un sistema di sensori e telecamere (simulato tramite input Python)
+#### Soluzione proposta e funzionamento:
+Il sistema monitora costantemente le 3 baie di scarico tramite sensori e telecamere. Lo script Bash agisce in ascolto leggendo l'input da un modulo Python che genera dati casuali su targhe, orari e numero di pacchi. Permette di visualizzare lo stato live delle baie o di consultare lo storico per identificare i volumi di carico e i TIR arrivati.
+
+
+#### Manuale Operativo:
+● Monitoraggio LIVE: ./sensore_baita_multiplo.sh (mostra lo stato attuale delle baie B1, B2, B3).
+● Storico Giornaliero: ./sensore_baita_multiplo.sh -d [data] (es: 2026-02-22).
+● Comparazione Periodo: ./sensore_baita_multiplo.sh -g [data_inizio] [data_fine].
+● Ricerca Record: ./sensore_baita_multiplo.sh -M [data] (mostra il TIR più carico del giorno).
 
 
 
 ## problema 2: Monitoraggio produttività dei dipendenti
-### Script: 
+### Script: ./filtra.sh
+#### Soluzione proposta e funzionamento:
+Lo script monitora lo stoccaggio dei pacchi per ogni dipendente. Permette di verificare il rendimento giornaliero, analizzare la "carriera" lavorativa di una specifica matricola o individuare chi ha stabilito il record di pacchi stoccati (sparati) in un determinato arco temporale.
 
 
-
+#### Manuale Operativo:
+● Situazione Odierna: ./filtra.sh (mostra il totale pacchi e il dettaglio per matricola di oggi).
+● Carriera Dipendente: ./filtra.sh -m [matricola] (es: 02).
+● Report Data Specifica: ./filtra.sh -d [data].
+● Report Periodo: ./filtra.sh -g [data1] [data2].
+● Ricerca Record: ./filtra.sh -M (può essere unito a -d o -g per trovare il recordman di quel periodo).
 
 
 ## problema 3: Fondo rullo
-### Script: 
+### Script: ./rinvsens.sh
+#### Soluzione proposta e funzionamento:
+Monitora la parte finale del sistema di smistamento automatico. Un sensore rileva ogni 2 secondi l'altezza dei pacchi nel carrello; al raggiungimento della soglia critica di 100 cm, invia automaticamente un messaggio al device di un operatore per lo svuotamento, garantendo la continuità del flusso.
 
 
-
-
+#### Manuale Operativo:
+● Monitoraggio LIVE: ./rinvsens.sh (mostra l'altezza in tempo reale e attiva gli alert).
+● Analisi Giorno Singolo: ./rinvsens.sh -d [data] (conta quante volte la soglia è stata superata).
+● Analisi Intervallo: ./rinvsens.sh -g [inizio] [fine].
 
 
 
 ## problema 4: Gestione Assenze e sostituzioni dei corrieri
-### Script: 
+### Script: ./contatta_corrieri.sh
 #### Soluzione proposta e funzionamento:
 Il sistema automatizza il protocollo di emergenza. Esegue un appello digitale istantaneo,
 rileva le mancanze e attinge immediatamente a un database di riserva. Attraverso una
@@ -46,7 +65,7 @@ amministrative.
 
 
 ## problema 5:  Tracciabilità Totale Smistamento
-### Script: 
+### Script: ./Simulatore.sh
 #### Soluzione proposta e funzionamento:
 Il Simulatore Smistamento Smart elimina l'incertezza. Ogni pacco che entra nel sistema
 viene registrato in un database SQLite e indirizzato digitalmente a un sensore specifico.
@@ -67,7 +86,7 @@ di passaggio di un determinato pacco.
 
 
 ## problema 6: Monitoraggio e Archiviazione Certificata
-### Script: 
+### Script: ./Accensione_Server.sh
 #### Soluzione proposta e funzionamento:
 Il monitoraggio è stato trasformato in un sistema di auditing automatico. Grazie a un server
 Node.js, ogni volta che viene aperta la dashboard web per visualizzare le telecamere, il
@@ -87,7 +106,7 @@ registro cronologico report_accesso.csv.
 
 
 ## problema 7: Smarrimento pacchi durante il trasporto
-### Script: 
+### Script: ./problema10.sh
 #### Soluzione proposta e funzionamento:
 La soluzione prevede l’implementazione di un database centralizzato in cui vengono registrati tutti i pacchi che devono arrivare al magazzino, trasformando il sistema da reattivo a proattivo. Il sistema funziona in questo modo:
 1.	Ogni pacco ritirato viene inserito nel database con: ID univoco, email del mittente, email del cliente, descrizione del contenuto e stato (atteso / arrivato).
@@ -109,7 +128,7 @@ Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai se
 
 
 ## problema 8: Sovraccarico delle tele di smistamento
-### Script: 
+### Script: ./problema1.sh ./problema1.2.sh 
 #### Soluzione proposta e funzionamento:
 La soluzione prevede l’installazione di un sensore di peso su ciascuna delle tre tele, creando un sistema di sicurezza intelligente (fail-safe). Il sistema utilizza due soglie operative:
 •	300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
@@ -131,7 +150,7 @@ o	./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due 
 
 
 ## problema 9: Analisi dell’andamento delle tele e produttività
-### Script: 
+### Script: ./problema2.sh
 #### Soluzione proposta e funzionamento:
 Abbiamo sviluppato uno script di analisi generalizzato che elabora i dati dei file di log, trasformando i dati tecnici in indicatori strategici. Il sistema permette di:
 •	Verificare la frequenza degli isolamenti delle tele e la durata delle interruzioni.
@@ -156,7 +175,7 @@ Questo modulo gestisce l'anagrafica dinamica degli ingressi e delle uscite del p
 
 
 ## problema 10: Controllo delle timbrature dei dipendenti
-### Script: 
+### Script: ./problema3.sh
 #### Soluzione proposta e funzionamento:
 La soluzione consiste nello sviluppo di uno script di gestione delle timbrature collegato a un database delle presenze sicuro e trasparente. Il sistema consente di:
 1.	Automatizzare la registrazione: orario di entrata, uscita e calcolo immediato dei ritardi.
