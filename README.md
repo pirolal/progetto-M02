@@ -21,7 +21,21 @@ Il sistema monitora costantemente le 3 baie di scarico tramite sensori e telecam
 
   ```
 - Storico Giornaliero: ./sensore_baita_multiplo.sh -d [data] (es: 2026-02-22).
+  ```
+  -------------------------------------------------------
+  DATA | TARGA | PACCHI | ORA
+  -------------------------------------------------------
+  2026-02-22 | CQ712WX | 336 | 11:52
+  2026-02-22 | PQ230SN | 407 | 11:54
+  2026-02-22 | SV648AY | 76 | 13:56
+  -------------------------------------------------------
+  ```
 - Comparazione Periodo: ./sensore_baita_multiplo.sh -g [data_inizio] [data_fine].
+  ```
+  [16:42] [B1:vuoto] [B2:vuoto] [B3:vuoto] | Magazzino: 0 pacchi
+  [16:43] [B1:vuoto] [B2:vuoto] [B3:vuoto] | Magazzino: 0 pacchi
+
+  ```
 - Ricerca Record: ./sensore_baita_multiplo.sh -M [data] (mostra il TIR più carico del giorno).
 
 
