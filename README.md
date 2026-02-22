@@ -151,9 +151,9 @@ Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai se
 #### Soluzione proposta e funzionamento:
 La soluzione prevede l’installazione di un sensore di peso su ciascuna delle tre tele, creando un sistema di sicurezza intelligente (fail-safe). Il sistema utilizza due soglie operative:
 
-•	300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
+● 300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
 
-•	500 kg → Soglia critica: isolamento automatico della tela dal rullo centrale. Il flusso si interrompe temporaneamente per salvaguardare l'integrità del macchinario e la sicurezza del personale.
+● 500 kg → Soglia critica: isolamento automatico della tela dal rullo centrale. Il flusso si interrompe temporaneamente per salvaguardare l'integrità del macchinario e la sicurezza del personale.
 L'intero processo viene monitorato da due script che registrano in tre file di log separati ogni evento (peso, stato LED, isolamento). Questo garantisce non solo prevenzione immediata, ma anche una memoria storica per la manutenzione.
 
 
@@ -225,15 +225,15 @@ Il sistema garantisce precisione e trasparenza, migliorando il clima aziendale e
 Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clienti.
 1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
 2.	Sintassi e Parametri:
-              o	./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
+            o	./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
 
-              o	./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
+            o	./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
   
-              o	./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
+            o	./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
   
-              o	./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
+            o	./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
   
-              o	./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
+            o	./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
   
 4.	User Experience: L'interfaccia terminale include barre di avanzamento grafiche che simulano il caricamento e l’invio dell’email  
 
