@@ -317,17 +317,76 @@ Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clien
 2.	Sintassi e Parametri:
     - ./problema10.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
         ```
-        Server in avvio su porta 9000
-        Per chiudere il server, premi CTRL+C nel terminale.
-        ------------------------------------------------
-        SERVER ATTIVO: http://localhost:9000
-        In attesa di connessione sulla pagina web...
+        ID    STATO      EMAIL AZIENDA                  EMAIL CLIENTE                 
+        ---------------------------------------------------------------------------------------
+        1     DENTRO     info@azienda1.it               giulia.marino1@example.com    
+        2     FUORI      info@azienda2.it               emma.greco2@example.com        
+        5     DENTRO     info@azienda5.it               sofia.rossi5@example.com      
+        45    DENTRO     info@azienda45.it              emma.bianchi45@example.com    
+        46    FUORI      info@azienda46.it              sofia.colombo46@example.com   
+        47    FUORI      info@azienda47.it              luca.greco47@example.com      
+        48    DENTRO     info@azienda48.it              luca.romano48@example.com    
       
         ```
     - ./problema10.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
+        ```
+        ID    STATO      EMAIL AZIENDA                  EMAIL CLIENTE                 
+        ---------------------------------------------------------------------------------------
+        1     DENTRO     info@azienda1.it               giulia.marino1@example.com    
+        5     DENTRO     info@azienda5.it               sofia.rossi5@example.com      
+        45    DENTRO     info@azienda45.it              emma.bianchi45@example.com    
+        48    DENTRO     info@azienda48.it              luca.romano48@example.com      
+      
+        ```
     - ./problema10.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
+        ```
+        ID    STATO      EMAIL AZIENDA                  EMAIL CLIENTE                 
+        ---------------------------------------------------------------------------------------
+        2     FUORI      info@azienda2.it               emma.greco2@example.com       
+        46    FUORI      info@azienda46.it              sofia.colombo46@example.com   
+        47    FUORI      info@azienda47.it              luca.greco47@example.com
+      
+        ```
     - ./problema10.sh -i → Report descrittivo dettagliato del contenuto di ogni pacco tramite ID.
+        ```
+        1     DENTRO          Smartphone modello 873                  
+        2     FUORI           Monitor modello 348                                          
+        5     DENTRO          Smartphone modello 348                                         
+        45    DENTRO          Lampada modello 592                     
+        46    FUORI           Cuffie modello 909                      
+        47    FUORI           Smartphone modello 457                  
+        48    DENTRO          Zaino modello 448                       
+        49    DENTRO          Cuffie modello 468                      
+        50    DENTRO          Tastiera modello 391
+      
+        ```
+        
     - ./problema10.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
+        ```
+        ==========================================================
+        SISTEMA AUTOMATIZZATO DI NOTIFICA LOGISTICA
+        ==========================================================
+        DA: magazzino@logistica.it
+        A: info@azienda2.it
+        OGGETTO: Avviso Mancata Ricezione Pacco #2
+        
+        Gentile Azienda,
+        Vi informiamo che il pacco in oggetto (Monitor modello 348) NON è ancora
+        pervenuto presso il nostro centro di smistamento.
+        Vi preghiamo di verificare lo stato della spedizione.
+        ----------------------------------------------------------
+        DA: customer-service@logistica.it
+        A: emma.greco2@example.com
+        OGGETTO: Aggiornamento sulla tua consegna #2
+        
+        Caro Cliente,
+        siamo spiacenti di informarti che la consegna del tuo ordine
+        (Monitor modello 348) subirà un ritardo di circa 2/3 giorni lavorativi
+        causa rallentamenti logistici.
+        ----------------------------------------------------------
+      
+        ```
+        
 4.	User Experience: L'interfaccia terminale include barre di avanzamento grafiche che simulano il caricamento e l’invio dell’email  
 
 
