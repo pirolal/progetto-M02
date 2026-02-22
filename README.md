@@ -195,17 +195,17 @@ Lo script restituisce statistiche pronte all'uso, permettendo una gestione azien
 Questo modulo gestisce l'anagrafica dinamica degli ingressi e delle uscite del personale.
 1.	Abilitazione: Configurare i permessi tramite chmod u+x problema3.sh.
 2.	Sintassi e Parametri:
-        o	./problema3.sh → Visualizza istantaneamente il personale attualmente in servizio (Stato: IN).
+   o	./problema3.sh → Visualizza istantaneamente il personale attualmente in servizio (Stato: IN).
 
-        o	./problema3.sh -io [BADGE] → Gestisce il check-in/check-out; calcola automaticamente il ritardo se l'ingresso supera le 08:00.
+   o	./problema3.sh -io [BADGE] → Gestisce il check-in/check-out; calcola automaticamente il ritardo se l'ingresso supera le 08:00.
   
-        o	./problema3.sh -r [BADGE]→ Report analitico dei ritardi accumulati per singolo dipendente.
+   o	./problema3.sh -r [BADGE]→ Report analitico dei ritardi accumulati per singolo dipendente.
   
-        o	./problema3.sh -date [YYYY-MM-DD] → Riepilogo presenze collettivo per una data specifica con calcolo delle ore lavorate.
+   o	./problema3.sh -date [YYYY-MM-DD] → Riepilogo presenze collettivo per una data specifica con calcolo delle ore lavorate.
   
-        o	./problema3.sh -s [BADGE] → Audit completo dello storico timbrature per il badge indicato.
+   o	./problema3.sh -s [BADGE] → Audit completo dello storico timbrature per il badge indicato.
   
-        o	./problema3.sh -d [BADGE] [DATA] → Estrazione puntuale di una timbratura incrociando codice utente e calendario.
+   o	./problema3.sh -d [BADGE] [DATA] → Estrazione puntuale di una timbratura incrociando codice utente e calendario.
   
 4.	Output: Visualizzazione organizzata in tabelle strutturate per il monitoraggio amministrativo.
 
@@ -225,15 +225,15 @@ Il sistema garantisce precisione e trasparenza, migliorando il clima aziendale e
 Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clienti.
 1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
 2.	Sintassi e Parametri:
-            o	./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
+      o	./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
 
-            o	./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
+      o	./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
   
-            o	./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
+      o	./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
   
-            o	./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
+      o	./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
   
-            o	./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
+      o	./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
   
 4.	User Experience: L'interfaccia terminale include barre di avanzamento grafiche che simulano il caricamento e l’invio dell’email  
 
