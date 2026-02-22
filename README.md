@@ -533,11 +533,77 @@ Questo modulo gestisce l'anagrafica dinamica degli ingressi e delle uscite del p
 1.	Abilitazione: Configurare i permessi tramite chmod u+x problema3.sh.
 2.	Sintassi e Parametri:
     - ./problema3.sh → Visualizza istantaneamente il personale attualmente in servizio (Stato: IN).
+       ```
+         Dipendenti attualmente in servizio oggi (2026-02-22):
+        -------------------------------------------
+        Nessun dipendente in servizio al momento.
+       
+       ```
     - ./problema3.sh -io [BADGE] → Gestisce il check-in/check-out; calcola automaticamente il ritardo se l'ingresso supera le 08:00.
+       ```
+      ⚠️ Ritardo: 838 min.
+      🟢 Badge 1023 → IN (21:58)
+      ------------------------------------------------------------------
+      🔴 Badge 1023 → OUT (21:58) - Ore: 0.00
+       
+       ```
     - ./problema3.sh -r [BADGE]→ Report analitico dei ritardi accumulati per singolo dipendente.
+       ```
+         Analisi Ritardi per Badge: 1023
+        -------------------------------------------
+        Giorno: 2026-01-24 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-01-26 | Entrata: 08:37 | ⚠️ RITARDO: 37 min
+        Giorno: 2026-01-27 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-01 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-03 | Entrata: 08:36 | ⚠️ RITARDO: 36 min
+        Giorno: 2026-02-04 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-05 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-18 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-19 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-20 | Entrata: 08:00 | ✅ PUNTUALE
+        Giorno: 2026-02-21 | Entrata: 08:14 | ⚠️ RITARDO: 14 min
+        Giorno: 2026-02-22 | Entrata: 21:58 | ⚠️ RITARDO: 838 min
+       
+       ```
     - ./problema3.sh -date [YYYY-MM-DD] → Riepilogo presenze collettivo per una data specifica con calcolo delle ore lavorate.
+       ```
+         Report dipendenti per il giorno: 2026-02-20
+        --------------------------------------------------------------
+        BADGE    | IN    | OUT   | ORE    | STATO RITARDO
+        --------------------------------------------------------------
+        1041     | 08:27 | 12:27 | 4.00   | Ritardo (27 min)
+        1026     | 08:00 | 17:00 | 9.00   | OK
+        1024     | 08:00 | 16:00 | 8.00   | OK
+        1023     | 08:00 | 17:00 | 9.00   | OK
+        1043     | 08:00 | 13:00 | 5.00   | OK
+       
+       ```
     - ./problema3.sh -s [BADGE] → Audit completo dello storico timbrature per il badge indicato.
+       ```
+         Storico Badge 1023
+        1023    OUT     08:00   15:00   7.00    2026-01-24
+        1023    OUT     08:37   15:37   7.00    2026-01-26
+        1023    OUT     08:00   13:00   5.00    2026-01-27
+        1023    OUT     08:00   16:00   8.00    2026-02-01
+        1023    OUT     08:36   13:36   5.00    2026-02-03
+        1023    OUT     08:00   13:00   5.00    2026-02-04
+        1023    OUT     08:00   13:00   5.00    2026-02-05
+        1023    OUT     08:00   16:00   8.00    2026-02-06
+        1023    OUT     08:00   16:00   8.00    2026-02-14
+        1023    OUT     08:00   15:00   7.00    2026-02-15
+        1023    OUT     08:00   14:00   6.00    2026-02-18
+        1023    OUT     08:00   13:00   5.00    2026-02-19
+        1023    OUT     08:00   17:00   9.00    2026-02-20
+        1023    OUT     08:14   14:14   6.00    2026-02-21
+        1023    OUT     21:58   21:58   0.00    2026-02-22
+       
+       ```
     - ./problema3.sh -d [BADGE] [DATA] → Estrazione puntuale di una timbratura incrociando codice utente e calendario.
+       ```
+      1023    OUT     08:00   17:00   9.00    2026-02-20 
+
+       
+       ```
 4.	Output: Visualizzazione organizzata in tabelle strutturate per il monitoraggio amministrativo.
 
 
