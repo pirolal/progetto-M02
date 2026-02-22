@@ -1,14 +1,11 @@
 # progetto magazzino di simistamento
 
 ![immagine magazzino](https://github.com/user-attachments/assets/30e5e9d6-5495-4f3c-a050-a59da9d4cb9d)
+
 - Progetto svolto da
-      -- Pirola Luca
-      -- Epis Tommaso
-      -- Neagu Andrei Angelo
-- Punto principale
-  - Sotto punto 1
-  - Sotto punto 2
-- Altro punto
+  - Pirola Luca
+  - Epis Tommaso
+  - Neagu Andrei Angelo
 
 ## problema 1: Monitoraggio Baie di Scarico (Indact)
 ### Script: ./sensore_baita_multiplo.sh
