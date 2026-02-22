@@ -10,8 +10,11 @@ Il sistema monitora costantemente le 3 baie di scarico tramite sensori e telecam
 
 #### Manuale Operativo:
 ● Monitoraggio LIVE: ./sensore_baita_multiplo.sh (mostra lo stato attuale delle baie B1, B2, B3).
+
 ● Storico Giornaliero: ./sensore_baita_multiplo.sh -d [data] (es: 2026-02-22).
+
 ● Comparazione Periodo: ./sensore_baita_multiplo.sh -g [data_inizio] [data_fine].
+
 ● Ricerca Record: ./sensore_baita_multiplo.sh -M [data] (mostra il TIR più carico del giorno).
 
 
