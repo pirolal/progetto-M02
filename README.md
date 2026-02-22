@@ -316,14 +316,14 @@ Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clien
 1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
 2.	Sintassi e Parametri:
     - ./problema10.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
-     ```
-    Server in avvio su porta 9000
-    Per chiudere il server, premi CTRL+C nel terminale.
-    ------------------------------------------------
-    SERVER ATTIVO: http://localhost:9000
-    In attesa di connessione sulla pagina web...
-
-  ```
+        ```
+        Server in avvio su porta 9000
+        Per chiudere il server, premi CTRL+C nel terminale.
+        ------------------------------------------------
+        SERVER ATTIVO: http://localhost:9000
+        In attesa di connessione sulla pagina web...
+      
+        ```
     - ./problema10.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
     - ./problema10.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
     - ./problema10.sh -i → Report descrittivo dettagliato del contenuto di ogni pacco tramite ID.
