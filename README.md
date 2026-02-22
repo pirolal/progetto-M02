@@ -25,19 +25,47 @@ Il sistema monitora costantemente le 3 baie di scarico tramite sensori e telecam
   -------------------------------------------------------
   DATA | TARGA | PACCHI | ORA
   -------------------------------------------------------
+  2026-02-22 | EF749JA | 419 | 11:52
   2026-02-22 | CQ712WX | 336 | 11:52
   2026-02-22 | PQ230SN | 407 | 11:54
+  2026-02-22 | QC537DG | 142 | 04:04
+  2026-02-22 | UX994XF | 118 | 21:23
   2026-02-22 | SV648AY | 76 | 13:56
-  
+  -------------------------------------------------------
+  RIASSUNTO:
+  Numero totale TIR: 6
+  Totale pacchi scaricati: 1498
+
   ```
 - Comparazione Periodo: ./sensore_baita_multiplo.sh -g [data_inizio] [data_fine].
   ```
-  [16:42] [B1:vuoto] [B2:vuoto] [B3:vuoto] | Magazzino: 0 pacchi
-  [16:43] [B1:vuoto] [B2:vuoto] [B3:vuoto] | Magazzino: 0 pacchi
-
+  -------------------------------------------------------
+  DATA | TARGA | PACCHI | ORA
+  -------------------------------------------------------
+  2026-02-02 | YN913LY | 403 | 16:40
+  2026-02-02 | UM238KG | 295 | 00:36
+  2026-02-02 | EW136YL | 258 | 00:36
+  2026-02-02 | XO257VL | 131 | 00:36
+  2026-02-02 | PK900SQ | 129 | 00:31
+  2026-02-02 | DP241NO | 147 | 19:43
+  2026-02-02 | AW458KC | 97 | 22:52
+  2026-02-03 | KF730NY | 296 | 04:14
+  -------------------------------------------------------
+  RIASSUNTO:
+  numero totale TIR: 8
+  Totale pacchi scaricati: 1756
+  
   ```
 - Ricerca Record: ./sensore_baita_multiplo.sh -M [data] (mostra il TIR più carico del giorno).
+  ```
+  Data: 2026-02-02
+  -------------------------------------------------------
+  IL TIR PIÙ CARICO TROVATO:
+  Targa: YN913LY
+  Pacchi: 403
+  Data: 2026-02-02 ore 16:40
 
+  ```
 
 
 ## problema 2: Monitoraggio produttività dei dipendenti
