@@ -1,4 +1,4 @@
-# progetto magazzino di simistamento
+# progetto magazzino di smistamento
 
 ![immagine magazzino](https://github.com/user-attachments/assets/30e5e9d6-5495-4f3c-a050-a59da9d4cb9d)
 
@@ -312,12 +312,26 @@ Inoltre, il sistema permette di filtrare i pacchi, monitorare lo stato in tempo 
 
 
 #### Manuale Operativo:
-Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai sensori dei rulli.
-1.	Abilitazione: Per prima cosa, rendiamo eseguibili i due script tramite il comando chmod u+x problema1.sh problema1.2.sh.
-2.	Esecuzione: Avviamo il sistema tramite ./problema1.sh. Questo comando agisce da orchestratore, lanciando in background 3 istanze parallele del modulo problema1.2.sh.
-3.	Logica Operativa: Ogni istanza interroga un algoritmo stocastico Python (generatore.py) per simulare il carico sui rulli. Il sistema è programmato per essere operativo esclusivamente nella fascia oraria 08:00 - 22:00.
-4.	Output: Vengono generati log cronologici nella cartella log_peso/, categorizzati per data e numero di tela (es: log_2026-02-22_tela1.log).
-5.	Terminazione: Per arrestare il monitoraggio e chiudere in sicurezza tutti i processi attivi, utilizzare la combinazione di tasti CTRL+C.
+Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clienti.
+1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
+2.	Sintassi e Parametri:
+    - ./problema10.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
+     ```
+    Server in avvio su porta 9000
+    Per chiudere il server, premi CTRL+C nel terminale.
+    ------------------------------------------------
+    SERVER ATTIVO: http://localhost:9000
+    In attesa di connessione sulla pagina web...
+
+  ```
+    - ./problema10.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
+    - ./problema10.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
+    - ./problema10.sh -i → Report descrittivo dettagliato del contenuto di ogni pacco tramite ID.
+    - ./problema10.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
+4.	User Experience: L'interfaccia terminale include barre di avanzamento grafiche che simulano il caricamento e l’invio dell’email  
+
+
+
 
 
 
@@ -329,6 +343,38 @@ La soluzione prevede l’installazione di un sensore di peso su ciascuna delle t
   - 300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
   - 500 kg → Soglia critica: isolamento automatico della tela dal rullo centrale. Il flusso si interrompe temporaneamente per salvaguardare l'integrità del macchinario e la sicurezza del personale.
 L'intero processo viene monitorato da due script che registrano in tre file di log separati ogni evento (peso, stato LED, isolamento). Questo garantisce non solo prevenzione immediata, ma anche una memoria storica per la manutenzione.
+
+
+#### Manuale Operativo:
+Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai sensori dei rulli.
+1.	Abilitazione: Per prima cosa, rendiamo eseguibili i due script tramite il comando chmod u+x problema1.sh problema1.2.sh.
+2.	Esecuzione: Avviamo il sistema tramite ./problema1.sh. Questo comando agisce da orchestratore, lanciando in background 3 istanze parallele del modulo problema1.2.sh.
+  ```
+Avviato monitoraggio rullo 1
+Avviato monitoraggio rullo 2
+Avviato monitoraggio rullo 3
+^C
+⛔ Arresto monitoraggio...
+✅ Tutti i rulli fermati
+
+
+  ```
+3.	Logica Operativa: Ogni istanza interroga un algoritmo stocastico Python (generatore.py) per simulare il carico sui rulli. Il sistema è programmato per essere operativo esclusivamente nella fascia oraria 08:00 - 22:00.
+4.	Output: Vengono generati log cronologici nella cartella log_peso/, categorizzati per data e numero di tela (es: log_2026-02-22_tela1.log).
+5.	Terminazione: Per arrestare il monitoraggio e chiudere in sicurezza tutti i processi attivi, utilizzare la combinazione di tasti CTRL+C.
+
+
+
+
+## problema 9: Analisi dell’andamento delle tele e produttività
+### Script: ./problema2.sh
+#### Soluzione proposta e funzionamento:
+Abbiamo sviluppato uno script di analisi generalizzato che elabora i dati dei file di log, trasformando i dati tecnici in indicatori strategici. Il sistema permette di:
+  - Verificare la frequenza degli isolamenti delle tele e la durata delle interruzioni.
+  - Analizzare il carico di lavoro in specifici intervalli orari per ottimizzare i turni del personale.
+  - Effettuare confronti mensili o annuali, calcolando la variazione percentuale del volume gestito.
+  - Identificare i "colli di bottiglia" strutturali su cui intervenire con nuovi investimenti.
+Lo script restituisce statistiche pronte all'uso, permettendo una gestione aziendale basata sulla Business Intelligence.
 
 
 #### Manuale Operativo:
@@ -344,15 +390,14 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
 
 
 
-## problema 9: Analisi dell’andamento delle tele e produttività
-### Script: ./problema2.sh
+## problema 10: Controllo delle timbrature dei dipendenti
+### Script: ./problema3.sh
 #### Soluzione proposta e funzionamento:
-Abbiamo sviluppato uno script di analisi generalizzato che elabora i dati dei file di log, trasformando i dati tecnici in indicatori strategici. Il sistema permette di:
-  - Verificare la frequenza degli isolamenti delle tele e la durata delle interruzioni.
-  - Analizzare il carico di lavoro in specifici intervalli orari per ottimizzare i turni del personale.
-  - Effettuare confronti mensili o annuali, calcolando la variazione percentuale del volume gestito.
-  - Identificare i "colli di bottiglia" strutturali su cui intervenire con nuovi investimenti.
-Lo script restituisce statistiche pronte all'uso, permettendo una gestione aziendale basata sulla Business Intelligence.
+La soluzione consiste nello sviluppo di uno script di gestione delle timbrature collegato a un database delle presenze sicuro e trasparente. Il sistema consente di:
+1.	Automatizzare la registrazione: orario di entrata, uscita e calcolo immediato dei ritardi.
+2.	Supportare la contabilità: i commercialisti possono visualizzare lo storico e calcolare le ore lavorate tramite un comando dedicato, riducendo a zero l'errore umano.
+3.	Fornire strumenti decisionali: il datore di lavoro può verificare chi ha lavorato in una certa data, monitorare la frequenza dei ritardi e prendere decisioni contrattuali basate su dati oggettivi.
+Il sistema garantisce precisione e trasparenza, migliorando il clima aziendale e l'efficienza burocratica.
 
 
 #### Manuale Operativo:
@@ -369,17 +414,27 @@ Questo modulo gestisce l'anagrafica dinamica degli ingressi e delle uscite del p
 
 
 
-## problema 10: Controllo delle timbrature dei dipendenti
-### Script: ./problema3.sh
-#### Soluzione proposta e funzionamento:
-La soluzione consiste nello sviluppo di uno script di gestione delle timbrature collegato a un database delle presenze sicuro e trasparente. Il sistema consente di:
-1.	Automatizzare la registrazione: orario di entrata, uscita e calcolo immediato dei ritardi.
-2.	Supportare la contabilità: i commercialisti possono visualizzare lo storico e calcolare le ore lavorate tramite un comando dedicato, riducendo a zero l'errore umano.
-3.	Fornire strumenti decisionali: il datore di lavoro può verificare chi ha lavorato in una certa data, monitorare la frequenza dei ritardi e prendere decisioni contrattuali basate su dati oggettivi.
-Il sistema garantisce precisione e trasparenza, migliorando il clima aziendale e l'efficienza burocratica.
 
 
-#### Manuale Operativo:
+
+
+
+
+
+
+Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai sensori dei rulli.
+1.	Abilitazione: Per prima cosa, rendiamo eseguibili i due script tramite il comando chmod u+x problema1.sh problema1.2.sh.
+2.	Esecuzione: Avviamo il sistema tramite ./problema1.sh. Questo comando agisce da orchestratore, lanciando in background 3 istanze parallele del modulo problema1.2.sh.
+3.	Logica Operativa: Ogni istanza interroga un algoritmo stocastico Python (generatore.py) per simulare il carico sui rulli. Il sistema è programmato per essere operativo esclusivamente nella fascia oraria 08:00 - 22:00.
+4.	Output: Vengono generati log cronologici nella cartella log_peso/, categorizzati per data e numero di tela (es: log_2026-02-22_tela1.log).
+5.	Terminazione: Per arrestare il monitoraggio e chiudere in sicurezza tutti i processi attivi, utilizzare la combinazione di tasti CTRL+C.
+
+
+
+
+
+
+
 Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clienti.
 1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
 2.	Sintassi e Parametri:
