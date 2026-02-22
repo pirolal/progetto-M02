@@ -64,6 +64,7 @@ coordinamento.
 
 #### Manuale Operativo:
 File principale: contatta_corrieri.sh
+
 ● Comando: ./contatta_corrieri.sh
 
 ● Logica: Lo script avvia il modulo Python generatore_assenti.py per l'appello. Se
@@ -87,6 +88,7 @@ quale sensore ha processato un collo, azzerando gli smarrimenti interni.
 
 #### Manuale Operativo:
 File principali: Simulatore.sh (interfaccia CLI) e gestione_spedizioni.db (database).
+
 ● Inizializzazione: ./Simulatore.sh -i (Popola il database e avvia il flusso di smistamento
 automatico).
 
@@ -110,6 +112,7 @@ storico inalterabile che documenta lo stato del magazzino a ogni singolo accesso
 
 #### Manuale Operativo:
 File principali: Accensione_Server.sh e server.js.
+
 ● Avvio: Eseguire ./Accensione_Server.sh per attivare il server sulla porta 9000.
 
 ● Utilizzo: Accedere tramite browser all'indirizzo http://localhost:9000.
@@ -127,9 +130,9 @@ La soluzione prevede l’implementazione di un database centralizzato in cui ven
 1.	Ogni pacco ritirato viene inserito nel database con: ID univoco, email del mittente, email del cliente, descrizione del contenuto e stato (atteso / arrivato).
 2.	Uno script automatico confronta periodicamente l’elenco dei pacchi attesi con quelli effettivamente registrati all’arrivo.
 3.	Se viene rilevata un’anomalia (pacco non arrivato nei tempi previsti):
-  o	Viene inviata automaticamente un’email al trasportatore per sollecitare il tracciamento.
+      o	Viene inviata automaticamente un’email al trasportatore per sollecitare il tracciamento.
 
-  o	Viene informato il cliente con una comunicazione di cortesia, anticipando il suo possibile reclamo.
+      o	Viene informato il cliente con una comunicazione di cortesia, anticipando il suo possibile reclamo.
 Inoltre, il sistema permette di filtrare i pacchi, monitorare lo stato in tempo reale e garantire una tracciabilità totale che previene le "zone d'ombra" nel trasporto.
 
 
@@ -147,6 +150,7 @@ Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai se
 ### Script: ./problema1.sh ./problema1.2.sh 
 #### Soluzione proposta e funzionamento:
 La soluzione prevede l’installazione di un sensore di peso su ciascuna delle tre tele, creando un sistema di sicurezza intelligente (fail-safe). Il sistema utilizza due soglie operative:
+
 •	300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
 
 •	500 kg → Soglia critica: isolamento automatico della tela dal rullo centrale. Il flusso si interrompe temporaneamente per salvaguardare l'integrità del macchinario e la sicurezza del personale.
@@ -157,15 +161,15 @@ L'intero processo viene monitorato da due script che registrano in tre file di l
 Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di fermo macchina.
 1.	Abilitazione: Rendere eseguibile lo script tramite chmod u+x problema2.sh.
 2.	Sintassi e Parametri: L'analisi si adatta dinamicamente agli argomenti inseriti:
-o	./problema2.sh → Analisi rapida dei blocchi avvenuti nella data odierna.
+    o	./problema2.sh → Analisi rapida dei blocchi avvenuti nella data odierna.
 
-o	./problema2.sh [RULLO]→ Focus specifico sulle performance di una singola linea di produzione.
+    o	./problema2.sh [RULLO]→ Focus specifico sulle performance di una singola linea di produzione.
 
-o	./problema2.sh [YYYY-MM-DD]→ Report giornaliero con calcolo dei secondi totali di fermo e dettaglio orario.
+    o	./problema2.sh [YYYY-MM-DD]→ Report giornaliero con calcolo dei secondi totali di fermo e dettaglio orario.
 
-o	./problema2.sh [DATA] [ORARIO] [RULLO] → Analisi granulare filtrata per data, fascia oraria e macchinario.
+    o	./problema2.sh [DATA] [ORARIO] [RULLO] → Analisi granulare filtrata per data, fascia oraria e macchinario.
 
-o	./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due date e calcola la variazione percentuale di efficienza lavorativa.
+    o	./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due date e calcola la variazione percentuale di efficienza lavorativa.
 
 4.	Output: I dati vengono processati e proiettati a terminale in formato testuale leggibile.
 
@@ -175,6 +179,7 @@ o	./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due 
 ### Script: ./problema2.sh
 #### Soluzione proposta e funzionamento:
 Abbiamo sviluppato uno script di analisi generalizzato che elabora i dati dei file di log, trasformando i dati tecnici in indicatori strategici. Il sistema permette di:
+
 •	Verificare la frequenza degli isolamenti delle tele e la durata delle interruzioni.
 
 •	Analizzare il carico di lavoro in specifici intervalli orari per ottimizzare i turni del personale.
