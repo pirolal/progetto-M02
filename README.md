@@ -438,10 +438,83 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
 1.	Abilitazione: Rendere eseguibile lo script tramite chmod u+x problema2.sh.
 2.	Sintassi e Parametri: L'analisi si adatta dinamicamente agli argomenti inseriti:
      - ./problema2.sh → Analisi rapida dei blocchi avvenuti nella data odierna.
+           ```
+          Le tele sono state ferme per 12 volte il 2026-02-09 tra 00:00 e 23:59
+          Dettaglio fermate:
+          10:33:36 - tela bloccata
+          10:33:38 - tela bloccata
+          10:33:39 - tela bloccata
+          10:33:40 - tela bloccata
+          10:33:43 - tela bloccata
+          10:33:46 - tela bloccata
+          10:33:47 - tela bloccata
+          10:33:48 - tela bloccata
+          10:33:49 - tela bloccata
+          10:33:50 - tela bloccata
+          10:33:54 - tela bloccata
+          10:33:55 - tela bloccata
+          
+            ```
      - ./problema2.sh [RULLO]→ Focus specifico sulle performance di una singola linea di produzione.
+           ```
+          Il rullo 2 è stato fermo per 18 volte il 2026-02-22 tra 00:00 e 23:59
+          Dettaglio fermate:
+          10:32:47 - tela bloccata
+          10:33:24 - tela bloccata
+          10:33:25 - tela bloccata
+          10:33:28 - tela bloccata
+          10:33:29 - tela bloccata
+          10:33:30 - tela bloccata
+          10:33:31 - tela bloccata
+          10:33:33 - tela bloccata
+          10:33:34 - tela bloccata
+          10:33:35 - tela bloccata
+          10:33:36 - tela bloccata
+          10:33:37 - tela bloccata
+          10:33:41 - tela bloccata
+          10:33:42 - tela bloccata
+          10:33:43 - tela bloccata
+          10:33:44 - tela bloccata
+          10:33:45 - tela bloccata
+                    
+          
+            ```
      - ./problema2.sh [YYYY-MM-DD]→ Report giornaliero con calcolo dei secondi totali di fermo e dettaglio orario.
+           ```
+          Le tele sono state ferme per 12 volte il 2026-02-09 tra 00:00 e 23:59
+          Dettaglio fermate:
+          15:08:43 - tela bloccata
+          15:08:44 - tela bloccata
+          15:08:49 - tela bloccata
+          15:08:50 - tela bloccata
+          15:08:51 - tela bloccata
+          15:08:54 - tela bloccata
+          15:08:43 - tela bloccata
+          15:08:44 - tela bloccata
+          15:08:45 - tela bloccata
+          15:09:05 - tela bloccata
+          15:09:06 - tela bloccata
+          15:09:07 - tela bloccata
+          
+            ```
      - ./problema2.sh [DATA] [ORARIO] [RULLO] → Analisi granulare filtrata per data, fascia oraria e macchinario.
+           ```
+          Il rullo 3 è stato fermo per 6 volte il 2026-02-09 tra 15:08 e 15:09
+          Dettaglio fermate:
+          15:08:43 - tela bloccata
+          15:08:44 - tela bloccata
+          15:08:45 - tela bloccata
+          15:09:05 - tela bloccata
+          15:09:06 - tela bloccata
+          15:09:07 - tela bloccata
+          
+          
+            ```
      - ./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due date e calcola la variazione percentuale di efficienza lavorativa.
+           ```
+         Il giorno 2026-02-03 l'azienda ha lavorato il 20% in meno rispetto al 2026-02-09 (Blocchi: 2026-02-03=15, 2026-02-09=12)
+       
+            ```
 4.	Output: I dati vengono processati e proiettati a terminale in formato testuale leggibile.
 
 
@@ -470,36 +543,6 @@ Questo modulo gestisce l'anagrafica dinamica degli ingressi e delle uscite del p
 
 
 
-
-
-
-
-
-
-
-
-Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai sensori dei rulli.
-1.	Abilitazione: Per prima cosa, rendiamo eseguibili i due script tramite il comando chmod u+x problema1.sh problema1.2.sh.
-2.	Esecuzione: Avviamo il sistema tramite ./problema1.sh. Questo comando agisce da orchestratore, lanciando in background 3 istanze parallele del modulo problema1.2.sh.
-3.	Logica Operativa: Ogni istanza interroga un algoritmo stocastico Python (generatore.py) per simulare il carico sui rulli. Il sistema è programmato per essere operativo esclusivamente nella fascia oraria 08:00 - 22:00.
-4.	Output: Vengono generati log cronologici nella cartella log_peso/, categorizzati per data e numero di tela (es: log_2026-02-22_tela1.log).
-5.	Terminazione: Per arrestare il monitoraggio e chiudere in sicurezza tutti i processi attivi, utilizzare la combinazione di tasti CTRL+C.
-
-
-
-
-
-
-
-Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clienti.
-1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
-2.	Sintassi e Parametri:
-    - ./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
-    - ./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
-    - ./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
-    - ./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
-    - ./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
-4.	User Experience: L'interfaccia terminale include barre di avanzamento grafiche che simulano il caricamento e l’invio dell’email  
 
 
 
