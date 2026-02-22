@@ -391,9 +391,6 @@ Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clien
 
 
 
-
-
-
 ## problema 8: Sovraccarico delle tele di smistamento
 ### Script: ./problema1.sh ./problema1.2.sh 
 #### Soluzione proposta e funzionamento:
