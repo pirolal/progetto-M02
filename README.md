@@ -138,8 +138,47 @@ Monitora la parte finale del sistema di smistamento automatico. Un sensore rilev
 
 #### Manuale Operativo:
 - Monitoraggio LIVE: ./rinvsens.sh (mostra l'altezza in tempo reale e attiva gli alert).
+  ```
+  [18:15:44] 13.85 cm
+  [18:15:47] 16.61 cm
+  ...
+  [18:16:21] 100.52 cm
+  ------------------------------------------------
+  ⚠️ Soglia superata! Svuotare carrello.
+  ------------------------------------------------
+
+  ```
 - Analisi Giorno Singolo: ./rinvsens.sh -d [data] (conta quante volte la soglia è stata superata).
-- Analisi Intervallo: ./rinvsens.sh -g [inizio] [fine].
+  ```
+  Analisi: 2026-02-01 / 2026-02-01
+  ------------------------------------------------
+  2026-02-01 [08:00] - 116.81 cm
+  2026-02-01 [08:40] - 106.51 cm
+  2026-02-01 [11:20] - 122.64 cm
+  2026-02-01 [15:40] - 101.75 cm
+  2026-02-01 [17:20] - 109.28 cm
+  2026-02-01 [18:00] - 108.21 cm
+  2026-02-01 [18:20] - 104.15 cm
+  2026-02-01 [19:00] - 101.0 cm
+  2026-02-01 [20:00] - 128.98 cm
+  2026-02-01 [21:40] - 113.06 cm
+  2026-02-01 [22:40] - 105.64 cm
+  2026-02-01 [23:40] - 104.68 cm
+  ------------------------------------------------
+  Totale superamenti soglia: 12
+
+
+  ```
+- Analisi Intervallo: ./rinvsens.sh -g [inizio] [fine]  (mostra tutte le volte che la soglia ha superato i 100cm, nelrange tra le due date).
+  ```
+  Analisi: 2026-02-02 / 2026-02-03
+  ------------------------------------------------
+  2026-02-02 [10:20] - 129.25 cm
+  2026-02-03 [23:00] - 126.6 cm
+  2026-02-03 [23:20] - 115.11 cm
+  ------------------------------------------------
+
+  ```
 
 
 
