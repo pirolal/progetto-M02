@@ -102,8 +102,8 @@ La soluzione prevede l’implementazione di un database centralizzato in cui ven
 1.	Ogni pacco ritirato viene inserito nel database con: ID univoco, email del mittente, email del cliente, descrizione del contenuto e stato (atteso / arrivato).
 2.	Uno script automatico confronta periodicamente l’elenco dei pacchi attesi con quelli effettivamente registrati all’arrivo.
 3.	Se viene rilevata un’anomalia (pacco non arrivato nei tempi previsti):
-  - Viene inviata automaticamente un’email al trasportatore per sollecitare il tracciamento.
-  - Viene informato il cliente con una comunicazione di cortesia, anticipando il suo possibile reclamo.
+    - Viene inviata automaticamente un’email al trasportatore per sollecitare il tracciamento.
+    - Viene informato il cliente con una comunicazione di cortesia, anticipando il suo possibile reclamo.
 Inoltre, il sistema permette di filtrare i pacchi, monitorare lo stato in tempo reale e garantire una tracciabilità totale che previene le "zone d'ombra" nel trasporto.
 
 
@@ -122,8 +122,8 @@ Questo modulo gestisce l'acquisizione in tempo reale dei dati provenienti dai se
 #### Soluzione proposta e funzionamento:
 La soluzione prevede l’installazione di un sensore di peso su ciascuna delle tre tele, creando un sistema di sicurezza intelligente (fail-safe). Il sistema utilizza due soglie operative:
 
-- 300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
-- 500 kg → Soglia critica: isolamento automatico della tela dal rullo centrale. Il flusso si interrompe temporaneamente per salvaguardare l'integrità del macchinario e la sicurezza del personale.
+  - 300 kg → Soglia di attenzione: attivazione di un LED di avviso. Il dipendente viene avvisato visivamente e può iniziare lo svuotamento senza che la linea si fermi.
+  - 500 kg → Soglia critica: isolamento automatico della tela dal rullo centrale. Il flusso si interrompe temporaneamente per salvaguardare l'integrità del macchinario e la sicurezza del personale.
 L'intero processo viene monitorato da due script che registrano in tre file di log separati ogni evento (peso, stato LED, isolamento). Questo garantisce non solo prevenzione immediata, ma anche una memoria storica per la manutenzione.
 
 
@@ -131,11 +131,11 @@ L'intero processo viene monitorato da due script che registrano in tre file di l
 Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di fermo macchina.
 1.	Abilitazione: Rendere eseguibile lo script tramite chmod u+x problema2.sh.
 2.	Sintassi e Parametri: L'analisi si adatta dinamicamente agli argomenti inseriti:
-   - ./problema2.sh → Analisi rapida dei blocchi avvenuti nella data odierna.
-   - ./problema2.sh [RULLO]→ Focus specifico sulle performance di una singola linea di produzione.
-   - ./problema2.sh [YYYY-MM-DD]→ Report giornaliero con calcolo dei secondi totali di fermo e dettaglio orario.
-   - ./problema2.sh [DATA] [ORARIO] [RULLO] → Analisi granulare filtrata per data, fascia oraria e macchinario.
-   - ./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due date e calcola la variazione percentuale di efficienza lavorativa.
+     - ./problema2.sh → Analisi rapida dei blocchi avvenuti nella data odierna.
+     - ./problema2.sh [RULLO]→ Focus specifico sulle performance di una singola linea di produzione.
+     - ./problema2.sh [YYYY-MM-DD]→ Report giornaliero con calcolo dei secondi totali di fermo e dettaglio orario.
+     - ./problema2.sh [DATA] [ORARIO] [RULLO] → Analisi granulare filtrata per data, fascia oraria e macchinario.
+     - ./problema2.sh -c [DATA1] [DATA2] → Business Intelligence: confronta le due date e calcola la variazione percentuale di efficienza lavorativa.
 4.	Output: I dati vengono processati e proiettati a terminale in formato testuale leggibile.
 
 
@@ -144,10 +144,10 @@ Questo modulo processa i log generati dal Modulo 1 per estrarre statistiche di f
 ### Script: ./problema2.sh
 #### Soluzione proposta e funzionamento:
 Abbiamo sviluppato uno script di analisi generalizzato che elabora i dati dei file di log, trasformando i dati tecnici in indicatori strategici. Il sistema permette di:
-- Verificare la frequenza degli isolamenti delle tele e la durata delle interruzioni.
-- Analizzare il carico di lavoro in specifici intervalli orari per ottimizzare i turni del personale.
-- Effettuare confronti mensili o annuali, calcolando la variazione percentuale del volume gestito.
-- Identificare i "colli di bottiglia" strutturali su cui intervenire con nuovi investimenti.
+  - Verificare la frequenza degli isolamenti delle tele e la durata delle interruzioni.
+  - Analizzare il carico di lavoro in specifici intervalli orari per ottimizzare i turni del personale.
+  - Effettuare confronti mensili o annuali, calcolando la variazione percentuale del volume gestito.
+  - Identificare i "colli di bottiglia" strutturali su cui intervenire con nuovi investimenti.
 Lo script restituisce statistiche pronte all'uso, permettendo una gestione aziendale basata sulla Business Intelligence.
 
 
@@ -155,12 +155,12 @@ Lo script restituisce statistiche pronte all'uso, permettendo una gestione azien
 Questo modulo gestisce l'anagrafica dinamica degli ingressi e delle uscite del personale.
 1.	Abilitazione: Configurare i permessi tramite chmod u+x problema3.sh.
 2.	Sintassi e Parametri:
-  - ./problema3.sh → Visualizza istantaneamente il personale attualmente in servizio (Stato: IN).
-  - ./problema3.sh -io [BADGE] → Gestisce il check-in/check-out; calcola automaticamente il ritardo se l'ingresso supera le 08:00.
-  - ./problema3.sh -r [BADGE]→ Report analitico dei ritardi accumulati per singolo dipendente.
-  - ./problema3.sh -date [YYYY-MM-DD] → Riepilogo presenze collettivo per una data specifica con calcolo delle ore lavorate.
-  - ./problema3.sh -s [BADGE] → Audit completo dello storico timbrature per il badge indicato.
-  - ./problema3.sh -d [BADGE] [DATA] → Estrazione puntuale di una timbratura incrociando codice utente e calendario.
+    - ./problema3.sh → Visualizza istantaneamente il personale attualmente in servizio (Stato: IN).
+    - ./problema3.sh -io [BADGE] → Gestisce il check-in/check-out; calcola automaticamente il ritardo se l'ingresso supera le 08:00.
+    - ./problema3.sh -r [BADGE]→ Report analitico dei ritardi accumulati per singolo dipendente.
+    - ./problema3.sh -date [YYYY-MM-DD] → Riepilogo presenze collettivo per una data specifica con calcolo delle ore lavorate.
+    - ./problema3.sh -s [BADGE] → Audit completo dello storico timbrature per il badge indicato.
+    - ./problema3.sh -d [BADGE] [DATA] → Estrazione puntuale di una timbratura incrociando codice utente e calendario.
 4.	Output: Visualizzazione organizzata in tabelle strutturate per il monitoraggio amministrativo.
 
 
@@ -179,11 +179,11 @@ Il sistema garantisce precisione e trasparenza, migliorando il clima aziendale e
 Questo modulo automatizza il tracciamento dei pacchi e le comunicazioni ai clienti.
 1.	Abilitazione: Rendere eseguibile il file tramite chmod u+x problema4.sh.
 2.	Sintassi e Parametri:
-  - ./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
-  - ./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
-  - ./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
-  - ./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
-  - ./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
+    - ./problema4.sh → Elenco generale della merce con stato di giacenza (In magazzino / In transito).
+    - ./problema4.sh -t → Mostra solo i pacchi già pervenuti correttamente (Stato: DENTRO).
+    - ./problema4.sh -f → Mostra solo le mancanze e i pacchi ancora non arrivati (Stato: FUORI).
+    - ./problema4.sh -i → Report descrittivo dettagliato del contenuto di ogni collo tramite ID.
+    - ./problema4.sh -e → Automazione Notifiche: attiva l'invio massivo di email. Invia solleciti ai fornitori e avvisi di ritardo ai clienti finali.
 4.	User Experience: L'interfaccia terminale include barre di avanzamento grafiche che simulano il caricamento e l’invio dell’email  
 
 
