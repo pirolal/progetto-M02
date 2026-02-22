@@ -5,6 +5,10 @@
       -- Pirola Luca
       -- Epis Tommaso
       -- Neagu Andrei Angelo
+- Punto principale
+  - Sotto punto 1
+  - Sotto punto 2
+- Altro punto
 
 ## problema 1: Monitoraggio Baie di Scarico (Indact)
 ### Script: ./sensore_baita_multiplo.sh
