@@ -26,24 +26,63 @@ Gestisce la prima fase del processo logistico: l'arrivo dei TIR e lo scarico dei
 
 ## problema 4: Gestione Assenze e sostituzioni dei corrieri
 ### Script: 
+#### Soluzione proposta e funzionamento:
+Il sistema automatizza il protocollo di emergenza. Esegue un appello digitale istantaneo,
+rileva le mancanze e attinge immediatamente a un database di riserva. Attraverso una
+simulazione di contatto intelligente, il software assegna i sostituti in tempo reale, garantendo
+che ogni mattina l'organico sia sempre di 20 operatori su 20, annullando i tempi morti di
+coordinamento.
 
 
+#### Manuale Operativo:
+File principale: contatta_corrieri.sh
+● Comando: ./contatta_corrieri.sh
+● Logica: Lo script avvia il modulo Python generatore_assenti.py per l'appello. Se
+vengono rilevati assenti, lo script Bash avvia una scansione ricorsiva sul database
+corrieri.csv finché non trova e conferma i sostituti necessari.
+● Output: Genera un report ufficiale denominato registro_assenti.txt per le finalità
+amministrative.
 
 
 
 ## problema 5:  Tracciabilità Totale Smistamento
-
 ### Script: 
+#### Soluzione proposta e funzionamento:
+Il Simulatore Smistamento Smart elimina l'incertezza. Ogni pacco che entra nel sistema
+viene registrato in un database SQLite e indirizzato digitalmente a un sensore specifico.
+Questo crea un legame indissolubile tra il pacco, il cliente e la sua posizione fisica nel
+magazzino. In ogni istante, l'operatore può interrogare il sistema per sapere esattamente
+quale sensore ha processato un collo, azzerando gli smarrimenti interni.
 
+
+#### Manuale Operativo:
+File principali: Simulatore.sh (interfaccia CLI) e gestione_spedizioni.db (database).
+● Inizializzazione: ./Simulatore.sh -i (Popola il database e avvia il flusso di smistamento
+automatico).
+● Filtro per Area: ./Simulatore.sh -s1 (oppure -s2, -s3) per visualizzare l'elenco dei
+pacchi presenti in una specifica zona di carico.
+● Ricerca Puntuale: ./Simulatore.sh -p [ID] per ottenere il percorso esatto e il sensore
+di passaggio di un determinato pacco.
 
 
 
 ## problema 6: Monitoraggio e Archiviazione Certificata
 ### Script: 
 #### Soluzione proposta e funzionamento:
+Il monitoraggio è stato trasformato in un sistema di auditing automatico. Grazie a un server
+Node.js, ogni volta che viene aperta la dashboard web per visualizzare le telecamere, il
+sistema scatta automaticamente uno screenshot di tutti i sensori. Queste immagini vengono
+archiviate in un database fisico organizzato per Anno, Mese, Giorno e Ora, creando uno
+storico inalterabile che documenta lo stato del magazzino a ogni singolo accesso.
+
 
 #### Manuale Operativo:
-
+File principali: Accensione_Server.sh e server.js.
+● Avvio: Eseguire ./Accensione_Server.sh per attivare il server sulla porta 9000.
+● Utilizzo: Accedere tramite browser all'indirizzo http://localhost:9000.
+● Automazione: All'apertura della pagina index.html, il sistema invia i segnali al server
+che provvede a creare la struttura delle cartelle, salvare i file JPG e aggiornare il
+registro cronologico report_accesso.csv.
 
 
 
